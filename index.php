@@ -10,20 +10,28 @@
     require_once("assets/functions/functions.php");
     require_once("libs/smarty/Smarty.class.php");
 
-    $page_id = 1;
+//    $page_id = 1;
+//
+//    if (isset($_GET["page_id"])) {
+//        $page_id = $_GET["page_id"];
+//    };
+//
+//    $page_heading = get_page_heading_by_id($page_id);
+//
+//    $page_content = get_page_content_by_id($page_id);
+//
+//    $smarty = new Smarty;
+//
+//    $smarty->assign('page_heading', $page_heading);
+//
+//    $smarty->assign('page_content', $page_content);
+//
+//    $smarty->display("assets/tpl/main.tpl");
 
-    if (isset($_GET["page_id"])) {
-        $page_id = $_GET["page_id"];
-    };
 
-    $page_heading = get_page_heading_by_id($page_id);
+var_dump(get_all_main_pages());
 
-    $page_content = get_page_content_by_id($page_id);
+while($page = mysqli_fetch_assoc(get_all_main_pages())) {
+    echo $page["page_header"];
+}
 
-    $smarty = new Smarty;
-
-    $smarty->assign('page_heading', $page_heading);
-
-    $smarty->assign('page_content', $page_content);
-
-    $smarty->display("assets/tpl/main.tpl");
